@@ -35,7 +35,7 @@ password = config.get('pass')
 prefix = config.get('prefix')
 packer_bot = config.get('chat_packer')
 anti_afk = config.get('anti_afk')
-anti_neg_rep = config.get('anti_neg_rep')
+
 
 width = os.get_terminal_size().columns
 
@@ -49,10 +49,6 @@ def startprint():
         antiafk = "Enabled"
     else:
         antiafk = "Disabled"
-    if anti_neg_rep == True:
-        antineg = "Enabled"
-    else:
-        antineg = "Disabled"
 
     print(f'''{Fore.RESET}
                     {Fore.RED} ██▓ ▒█████  ▒██   ██▒ ██▓▓█████▄ ▓█████ 
@@ -70,7 +66,6 @@ def startprint():
                         {Fore.RED}ID ==> {Fore.WHITE}{Ioxide.user.id}
                         {Fore.RED}Packer ==> {Fore.WHITE}{packer}
                         {Fore.RED}Anti-AFK ==> {Fore.WHITE}{antiafk}
-                        {Fore.RED}Anti-Neg-Rep ==> {Fore.WHITE}{antineg}
                         {Fore.RED}Prefix ==> {Fore.WHITE}{prefix}
                         {Fore.RED}Version ==> {Fore.WHITE} v{ChatPacker.__version__}
 
@@ -164,16 +159,7 @@ async def on_message(message):
                 except discord.errors.Forbidden:
                     print(""
                     f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
-    ##else:
-        if 'ioxideK' in message.content:
-            if anti_neg_rep == True:
-                try:
-                    msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me" 
-                    await message.channel.send(msg)
-                except discord.errors.Forbidden:
-                    print(""
-                    f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
-            else:
+    else:
                 return
     await Ioxide.process_commands(message)
 
@@ -207,7 +193,7 @@ async def help(ctx):
     em = discord.Embed(title="_Ioxide Help_",color= discord.Color(0x000000))
     em.add_field(name="_*Packing*_",value="Display Packing Utilities",inline=False)
     em.add_field(name="_*AFK*_",value="Display AFK Utilities",inline=False)
-    em.add_field(name="_*Anti-Negative*_",value="Display Anti-Negative Rep. Utilities",inline=False)
+    em.add_field(name="_*AntiNeg*_",value="Display Anti-Negative Rep. Utilities",inline=False)
     em.add_field(name="_*Wizzing*_",value="Display Wizzing Utilities",inline=False)
     em.add_field(name="_*Trolling*_",value="Display Trolling Utilities",inline=False)
     em.set_image(url="https://media.giphy.com/media/uFcRawfvGxsJO/giphy.gif")
@@ -232,18 +218,33 @@ async def afk(ctx):
     em.set_footer(text="dont fold lmfao")
     await ctx.send(embed=em)
 
+@Ioxide.command()
+async def antineg(ctx):
+    await ctx.message.delete()
+    em = discord.Embed(title="_Anti-Negative Help_",color= discord.Color(0x000000))
+    em.add_field(name="_*ioxideK*_",value="Sends secret message ;)",inline=False)
+    em.set_image(url="https://media.giphy.com/media/mKAc6ZZqeE4Ao/giphy.gif")
+    await ctx.send(embed=em)
+
 @Ioxide.command(aliases=['sayajoke','jokepack'])
 async def joke(ctx):
+    ## idfk how to do tables for the jokes or this would be cleaner
     jokes = ["Nigga you overdosed from adrenaline rushes nigga fuck is you sayin","Aye nigga the first time you rode a skateboard you started twisting yo spine back and forth thinking you was accelerating nigga you dumb as shit","That wasn't funny nigga that's why yo long lost pet jaguar was found in west virginia eating rat soup in a pawn shop nigga you ugly as shit","That's why all yo subscribers unsubbed from yo youtube channel the first time you did a face-cam because you was ugly as shit","you smell like shit boy you shower with orange juice smelly ass nigga","you have sex with indian cockaroaches goofy ass nigga","your tities built like doritos nasty ass nigga Mmmm doritos nacho titty ass nigga","When you sneeze you got no recoil boy you be sendin yo spit everywhere"]
     await ctx.message.delete()
     randomJoke = random.choice(jokes)
     msg = randomJoke
     await ctx.send(msg)
 
+@Ioxide.command(aliases=['IoxideK','ioxidek','Ioxidek'])
+async def IoxideK(ctx):
+    await ctx.message.delete()
+    msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me"
+    await ctx.send(msg)
+
 @Ioxide.command(aliases=['check','afkc','checkafk'])
 async def afkcheck(ctx):
     await ctx.message.delete()
-    
+    ## Start Check
     await ctx.send('afk check')
     time.sleep(0.8)
     await ctx.send('10')
