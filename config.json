@@ -1,0 +1,9 @@
+{
+    "token": "",
+    "pass": "",
+    "prefix": "$",
+
+    "chat_packer": true,
+    "anti_afk": false,
+    "anti_neg_rep": true
+}
