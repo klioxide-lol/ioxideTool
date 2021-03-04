@@ -159,8 +159,7 @@ async def on_message(message):
                 except discord.errors.Forbidden:
                     print(""
                     f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
-    else:
-                return
+            return
     await Ioxide.process_commands(message)
 
 @Ioxide.event
@@ -235,7 +234,7 @@ async def joke(ctx):
     msg = randomJoke
     await ctx.send(msg)
 
-@Ioxide.command(aliases=['IoxideK','ioxidek','Ioxidek'])
+@Ioxide.command(aliases=['ioxideK','ioxidek','Ioxidek'])
 async def IoxideK(ctx):
     await ctx.message.delete()
     msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me"
