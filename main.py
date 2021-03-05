@@ -375,7 +375,7 @@ async def troll(ctx):
 @Ioxide.command(aliases=['sayajoke','jokepack'])
 async def joke(ctx):
     ## idfk how to do tables for the jokes or this would be cleaner
-    jokes = ["Nigga you overdosed from adrenaline rushes nigga fuck is you sayin","Aye nigga the first time you rode a skateboard you started twisting yo spine back and forth thinking you was accelerating nigga you dumb as shit","That wasn't funny nigga that's why yo long lost pet jaguar was found in west virginia eating rat soup in a pawn shop nigga you ugly as shit","That's why all yo subscribers unsubbed from yo youtube channel the first time you did a face-cam because you was ugly as shit","you smell like shit boy you shower with orange juice smelly ass nigga","you have sex with indian cockaroaches goofy ass nigga","your tities built like doritos nasty ass nigga Mmmm doritos nacho titty ass nigga","When you sneeze you got no recoil boy you be sendin yo spit everywhere","Don't talk to me seedill really back hand you with a pancake in your pussy"]
+    jokes = ["Nigga you overdosed from adrenaline rushes nigga fuck is you sayin","Aye nigga the first time you rode a skateboard you started twisting yo spine back and forth thinking you was accelerating nigga you dumb as shit","That wasn't funny nigga that's why yo long lost pet jaguar was found in west virginia eating rat soup in a pawn shop nigga you ugly as shit","That's why all yo subscribers unsubbed from yo youtube channel the first time you did a face-cam because you was ugly as shit","you smell like shit boy you shower with orange juice smelly ass nigga","you have sex with indian cockaroaches goofy ass nigga","your tities built like doritos nasty ass nigga Mmmm doritos nacho titty ass nigga","When you sneeze you got no recoil boy you be sendin yo spit everywhere"]
     await ctx.message.delete()
     randomJoke = random.choice(jokes)
     msg = randomJoke
@@ -445,35 +445,3 @@ async def destroy(ctx):
 if __name__ == '__main__':
     Init()
 
-@Ioxide.command(aliases=['destroy','doom','demise'])
-async def Wizz(ctx):
-    await ctx.message.delete()
-    for channel in list(ctx.guild.channels):
-        try:
-            await channel.delete()    
-        except:
-            pass
-    for user in list(ctx.guild.members):
-        try:
-            await user.ban()
-        except:
-            pass    
-    for role in list(ctx.guild.roles):
-        try:
-            await role.delete()
-        except:
-            pass
-    try:
-        await ctx.guild.edit(
-            name=RandString(),
-            description="https://Ioxide.wtf",
-            reason="https://github.com/klioxide-lol/ioxideTool",
-            icon=None,
-            banner=None
-        )  
-    except:
-        pass        
-    for _i in range(250):
-        await ctx.guild.create_text_channel(name=RandString())
-    for _i in range(250):
-        await ctx.guild.create_role(name=RandString(), color=RandomColor())
