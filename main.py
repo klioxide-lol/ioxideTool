@@ -265,12 +265,13 @@ async def clear(ctx):
 @Ioxide.command()
 async def help(ctx):
     await ctx.message.delete()
-    em = discord.Embed(title="_Ioxide Help_",color= discord.Color(0x000000))
+    em = discord.Embed(title="_Ioxide Packing Tool_",color= discord.Color(0x000000))
     em.add_field(name="_*Packing*_",value="Display Packing Utilities",inline=False)
     em.add_field(name="_*AFK*_",value="Display AFK Utilities",inline=False)
     em.add_field(name="_*AntiNeg*_",value="Display Anti-Negative Rep. Utilities",inline=False)
     em.add_field(name="_*Wizzing*_",value="Display Wizzing Utilities",inline=False)
     em.add_field(name="_*Trolling*_",value="Display Trolling Utilities",inline=False)
+    em.add_field(name="_*NSFW*_",value="Display NSFW Utilities",inline=False)
     em.set_image(url="https://media.giphy.com/media/uFcRawfvGxsJO/giphy.gif")
     em.set_footer(text="klioxide was here lol")
     await ctx.send(embed=em)
@@ -317,6 +318,20 @@ async def trolling(ctx):
     em.add_field(name="_**troll**_",value="Sends a random troll message xd LOL0lL0L",inline=False)
     em.set_image(url="https://media.giphy.com/media/tyttpHlrsqdQC08orGE/giphy.gif")
     em.set_footer(text="slang these nuts across yo face nigga LOL")
+    await ctx.send(embed=em)
+
+@Ioxide.command()
+async def nsfw(ctx):
+    await ctx.message.delete()
+    em = discord.Embed(title="_*NSFW Help*_",color= discord.Color(0x000000))
+    em.add_field(name="_**fuck**_",value="has monkey sex with user",inline=False)
+    em.add_field(name="_**anal**_",value="does nigga anal with user",inline=False)
+    em.add_field(name="_**boobs**_",value="plays with those melons",inline=False)
+    em.add_field(name="_**cum**_",value="turn someone into a twinkie",inline=False)
+    em.add_field(name="_**kiss**_",value="and now.. le kiss",inline=False)
+    em.add_field(name="_**head**_",value="makes u get gwap gwap 12000 from a user",inline=False)
+    em.set_image(url="https://media.giphy.com/media/10ToEKrp3s99Fm/giphy.gif")
+    em.set_footer(text="monkey ape nigga sex")
     await ctx.send(embed=em)
 
 @Ioxide.command(aliases=['rainbowrole'])
@@ -371,6 +386,23 @@ async def troll(ctx):
         await ctx.send(trollresponse5)
     else:
         return
+
+@Ioxide.command(aliases=["spamchangegcname", "changegcname"])
+async def spamgcname(ctx):
+    await ctx.message.delete()
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        watermark = "ioxideW"
+        name = " "
+        for letter in watermark:
+            name = name + letter
+            await ctx.message.channel.edit(name=name)
+
+@Ioxide.command(aliases=['911'])
+async def swat(ctx, user): # b'\xfc'
+    await ctx.message.delete()
+    em = discord.Embed(description=user + ' has been swatted', colour=discord.Colour(0x000000))
+    em.set_image(url="https://i.imgur.com/j1fjEwj.gif")
+    await ctx.send(embed=em)
 
 @Ioxide.command(aliases=['sayajoke','jokepack'])
 async def joke(ctx):
@@ -441,6 +473,131 @@ async def destroy(ctx):
         await ctx.guild.create_text_channel(name="ioxide nuked u lol")
     for _i in range(250):
         await ctx.guild.create_role(name="ioxideW", color=RandomColor())
+
+## Nsfw Commands Here
+@Ioxide.command()
+async def fuck(ctx, recipients):
+    await ctx.message.delete() 
+    if isinstance(ctx.message.channel, discord.GroupChannel): # makes it work in gcs (finally got it i was so retarded LOL)
+        r = requests.get("https://nekos.life/api/v2/img/Random_hentai_gif")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**fucked**_ '+recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+
+    elif isinstance(ctx.message.channel, discord.DMChannel): # makes it work in dms
+            r = requests.get("https://nekos.life/api/v2/img/Random_hentai_gif")
+            res = r.json()
+            em = discord.Embed(description=Ioxide.user.name+' _**fucked**_ '+recipients, color= discord.Color(0x000000))
+            em.set_image(url=res['url'])
+    await ctx.send(embed=em) 
+
+@Ioxide.command()
+async def cum(ctx, recipients):
+    await ctx.message.delete() 
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/cum")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**came inside**_ '+recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/cum")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**came inside**_ '+recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em) 
+
+@Ioxide.command()
+async def head(ctx, recipients):
+    await ctx.message.delete()
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/blowjob")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**got head from**_ '+ recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/blowjob")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**got head from**_ '+ recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em)
+
+@Ioxide.command()
+async def spank(ctx, recipients):
+    await ctx.message.delete()
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/spank")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**spanked**_ '+ recipients+"'s _**fat ass**_ ", color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/spank")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**spanked**_ '+ recipients+"'s _**fat ass**_ ", color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em)
+
+@Ioxide.command()
+async def boobs(ctx, recipients):
+    await ctx.message.delete()
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/boobs")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**played with**_ '+ recipients +"'s _**boobs**_ ", color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/boobs")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**played with**_ '+ recipients +"'s _**boobs**_ ", color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em)
+
+@Ioxide.command()
+async def pussy(ctx, recipients):
+    await ctx.message.delete()
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/pussy")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**fucked**_ '+ recipients +"'s _**wet pussy**_ ", color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/pussy")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**fucked**_ '+ recipients +"'s _**wet pussy**_ ", color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em)
+
+@Ioxide.command()
+async def kiss(ctx, recipients):
+    await ctx.message.delete() 
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/kiss")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**kissed**_ '+recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/kiss")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**kissed**_ '+recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em) 
+
+@Ioxide.command()
+async def anal(ctx, recipients):
+    await ctx.message.delete() 
+    if isinstance(ctx.message.channel, discord.GroupChannel):
+        r = requests.get("https://nekos.life/api/v2/img/anal")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**gave**_ '+recipients, color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+
+    elif isinstance(ctx.message.channel, discord.DMChannel):
+        r = requests.get("https://nekos.life/api/v2/img/anal")
+        res = r.json()
+        em = discord.Embed(description=Ioxide.user.name+' _**gave**_ '+recipients+' _**anal**_ ', color= discord.Color(0x000000))
+        em.set_image(url=res['url'])
+    await ctx.send(embed=em) 
 
 if __name__ == '__main__':
     Init()
