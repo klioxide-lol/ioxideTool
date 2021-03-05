@@ -35,7 +35,7 @@ password = config.get('pass')
 prefix = config.get('prefix')
 packer_bot = config.get('chat_packer')
 anti_afk = config.get('anti_afk')
-
+anti_neg = config.get('anti_neg')
 
 width = os.get_terminal_size().columns
 
@@ -49,6 +49,11 @@ def startprint():
         antiafk = "Enabled"
     else:
         antiafk = "Disabled"
+
+    if anti_neg == True:
+        antineg = "Enabled"
+    else:
+        antineg = "Disabled"
 
     print(f'''{Fore.RESET}
                     {Fore.RED} ██▓ ▒█████  ▒██   ██▒ ██▓▓█████▄ ▓█████ 
@@ -66,6 +71,7 @@ def startprint():
                         {Fore.RED}ID ==> {Fore.WHITE}{Ioxide.user.id}
                         {Fore.RED}Packer ==> {Fore.WHITE}{packer}
                         {Fore.RED}Anti-AFK ==> {Fore.WHITE}{antiafk}
+                        {Fore.RED}Anti-Negative ==> {Fore.WHITE}{antineg}
                         {Fore.RED}Prefix ==> {Fore.WHITE}{prefix}
                         {Fore.RED}Version ==> {Fore.WHITE} v{ChatPacker.__version__}
 
@@ -148,18 +154,84 @@ async def on_message(message):
                 except discord.errors.Forbidden:
                     print(""
                     f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
-    else:
-        if 'AFK C' in message.content:
-            if anti_afk == True:
-                try:
-                    randomResponses = random.choice(responses)
-                    time.sleep(ptime)
-                    msg = randomResponses
-                    await message.channel.send(msg)
-                except discord.errors.Forbidden:
-                    print(""
-                    f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
-            return
+    elif 'AFK C' in message.content:
+        if anti_afk == True:
+            try:
+                randomResponses = random.choice(responses)
+                time.sleep(ptime)
+                msg = randomResponses
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+    elif 'AFK c' in message.content:
+        if anti_afk == True:
+            try:
+                randomResponses = random.choice(responses)
+                time.sleep(ptime)
+                msg = randomResponses
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+        return
+
+    elif 'ioxideK' in message.content:
+        if anti_neg == True:
+            try:
+                msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me"
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+    elif 'ioxidek' in message.content:
+        if anti_neg == True:
+            try:
+                msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me"
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+    elif 'IoxideK' in message.content:
+        if anti_neg == True:
+            try:
+                msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me"
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+    elif 'demonicK' in message.content:
+        if anti_neg == True:
+            try:
+                msg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1KzlBBJEmKwmG2Bm8QGmhRcpZZnJk1I44EQ&usqp=CAU  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-ftaghu n'gha nglui cgoka fm'latgh, hupadgh llll kn'a athg y-zhro wgah'n f'k'yarnak nglui, nas'uhn mg hupadgh cshagg namnahn' h'athgPh'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-fta https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFrZiOeD3dEQuVSQc2FuG3eWN6g_Sr7NswzQ&usqp=CAU"
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+    elif 'DemonicK' in message.content:
+        if anti_neg == True:
+            try:
+                msg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1KzlBBJEmKwmG2Bm8QGmhRcpZZnJk1I44EQ&usqp=CAU  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-ftaghu n'gha nglui cgoka fm'latgh, hupadgh llll kn'a athg y-zhro wgah'n f'k'yarnak nglui, nas'uhn mg hupadgh cshagg namnahn' h'athgPh'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-fta https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFrZiOeD3dEQuVSQc2FuG3eWN6g_Sr7NswzQ&usqp=CAU"
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+    elif 'demonick' in message.content:
+        if anti_neg == True:
+            try:
+                msg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1KzlBBJEmKwmG2Bm8QGmhRcpZZnJk1I44EQ&usqp=CAU  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-ftaghu n'gha nglui cgoka fm'latgh, hupadgh llll kn'a athg y-zhro wgah'n f'k'yarnak nglui, nas'uhn mg hupadgh cshagg namnahn' h'athgPh'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-fta https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFrZiOeD3dEQuVSQc2FuG3eWN6g_Sr7NswzQ&usqp=CAU"
+                await message.channel.send(msg)
+            except discord.errors.Forbidden:
+                print(""
+                f"\n{Fore.RED}was unable to send message at{Fore.WHITE} {time}"+Fore.RESET)
+
+
     await Ioxide.process_commands(message)
 
 @Ioxide.event
@@ -221,7 +293,6 @@ async def afk(ctx):
 async def antineg(ctx):
     await ctx.message.delete()
     em = discord.Embed(title="_Anti-Negative Help_",color= discord.Color(0x000000))
-    em.add_field(name="_*ioxideK*_",value="Sends secret message ;)",inline=False)
     em.set_image(url="https://media.giphy.com/media/mKAc6ZZqeE4Ao/giphy.gif")
     await ctx.send(embed=em)
 
@@ -232,18 +303,6 @@ async def joke(ctx):
     await ctx.message.delete()
     randomJoke = random.choice(jokes)
     msg = randomJoke
-    await ctx.send(msg)
-
-@Ioxide.command(aliases=['ioxideK','ioxidek','Ioxidek'])
-async def IoxideK(ctx):
-    await ctx.message.delete()
-    msg = "i command u to fold to me https://cropper.watch.aetnd.com/public-content-aetn.video.aetnd.com/video-thumbnails/AETN-History_VMS/880/442/BRAND_H2_ACTA_111852_TVE_2398_060_20131025_V1_HD.jpg i command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to mei command u to fold to me"
-    await ctx.send(msg)
-
-@Ioxide.command(aliases=['demonicK','Demonick','demonick'])
-async def DemonicK(ctx):
-    await ctx.message.delete()
-    msg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1KzlBBJEmKwmG2Bm8QGmhRcpZZnJk1I44EQ&usqp=CAU  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-ftaghu n'gha nglui cgoka fm'latgh, hupadgh llll kn'a athg y-zhro wgah'n f'k'yarnak nglui, nas'uhn mg hupadgh cshagg namnahn' h'athgPh'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. NaYoggoth ah 'fhalma shagg fm'latgh 'fhalma ch', hai sll'ha Azathoth uh'e y-shugg nach' vulgtlagln hlirgh 'fhalma 'aior vulgtlagln. Ph'Azathoth ee nilgh'ri athg Tsathoggua nilgh'ri ebunma shogg goka, lloig ehyenyth ngebunma cwgah'n r'luh wgah'n f'nglui Tsathoggua, ep shugg Yoggoth geb ooboshuoth shagg nguh'e. Gnaiih nnnzhro cshogg ph'vulgtm syha'h nog Tsathoggua shagg f'ron, mg throd y-shogg hafh'drn grah'n cnog n'ghaog Hastur ebunma, Nyarlathotep orr'e kn'a uaaah ehye zhro lloig. Ron k'yarnak hafh'drn y-fta https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFrZiOeD3dEQuVSQc2FuG3eWN6g_Sr7NswzQ&usqp=CAU"
     await ctx.send(msg)
 
 @Ioxide.command(aliases=['check','afkc','checkafk'])
